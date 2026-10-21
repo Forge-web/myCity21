@@ -1,9 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Агентство недвижимости в Алатыре' })
 
-const { data: properties } = await useFetch('/api/properties', {
-  query: { limit: 6 },
-})
+const { data: properties } = await useFetch('/api/properties')
 
 const advantages = [
   { icon: '🏆', title: 'С 2009 года', text: 'Более 15 лет на рынке недвижимости Алатыря.' },
@@ -57,4 +55,5 @@ const advantages = [
       <p v-else class="text-gray-500">Пока нет опубликованных объектов.</p>
     </section>
   </div>
+
 </template>
