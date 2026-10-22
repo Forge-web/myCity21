@@ -13,8 +13,6 @@ const advantages = [
 const {data, error} = await useFetch('/api/announcements/edit', {
 	body: {}
 })
-
-console.log(data.value);
 </script>
 
 <template>
