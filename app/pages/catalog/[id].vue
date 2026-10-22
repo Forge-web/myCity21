@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data: property } = await useFetch(`/api/properties/${route.params.id}`)
+const { data: getProperty } = await useFetch(`/api/properties/${route.params.id}`)
+
+const property = ref(getProperty.value![0]);
 
 if (!property.value) {
   throw createError({ statusCode: 404, statusMessage: 'Объект не найден' })

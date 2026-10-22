@@ -5,6 +5,7 @@ const nav = [
   { label: 'Каталог', to: '/catalog' },
   { label: 'О компании', to: '/about' },
   { label: 'Контакты', to: '/contacts' },
+  { label: 'Кабинет', to: '/account'},
 ]
 </script>
 
