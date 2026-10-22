@@ -40,7 +40,6 @@ const nav = [
       <UButton
           :icon="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
           size="xl"
-          color="black"
           variant="ghost"
           aria-label="Меню"
           class="md:hidden"

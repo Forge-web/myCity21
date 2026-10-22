@@ -21,8 +21,8 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap' },
       ],
     },
-    runtimeConfig: {
-		  databaseUrl: process.env.DATABASE_URL,
-	},
   },
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
+	},
 })
