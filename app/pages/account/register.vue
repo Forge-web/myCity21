@@ -43,7 +43,7 @@ async function register() {
 			<div class="">
 				Уже есть аккаунт? <span class="text-red-600 hover:text-red-900">
 					<NuxtLink to="/account/login" >
-						Зарегистрироваться
+						Войти
 					</NuxtLink>
 				</span>
 			</div>
