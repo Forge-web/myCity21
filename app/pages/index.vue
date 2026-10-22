@@ -10,9 +10,6 @@ const advantages = [
   { icon: '📞', title: 'Всегда на связи', text: 'Сопровождаем сделку на всех этапах.' },
 ]
 
-const {data, error} = await useFetch('/api/announcements/edit', {
-	body: {}
-})
 </script>
 
 <template>
