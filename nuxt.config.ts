@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@nuxt/fonts'],
+  modules: ['@nuxt/ui', '@nuxt/fonts', 'nuxt-auth-utils'],
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
@@ -21,5 +21,8 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap' },
       ],
     },
+    runtimeConfig: {
+		  databaseUrl: process.env.DATABASE_URL,
+	},
   },
 })

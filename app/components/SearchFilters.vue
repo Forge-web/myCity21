@@ -5,6 +5,19 @@ const emit = defineEmits<{
 
 const filters = reactive({ rooms: '', type: '', minPrice: '', maxPrice: '' })
 
+const typeOptions = [
+  { value: 'apartment', label: 'Квартира' },
+  { value: 'house', label: 'Дом' },
+  { value: 'commercial', label: 'Коммерческая' },
+]
+
+const roomOptions = [
+  { value: '1', label: '1' },
+  { value: '2', label: '2' },
+  { value: '3', label: '3' },
+  { value: '4+', label: '4+' },
+]
+
 function submit() {
   emit('search', { ...filters })
 }
@@ -12,33 +25,13 @@ function submit() {
 
 <template>
   <form
-    @submit.prevent="submit"
     class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5"
+    @submit.prevent="submit"
   >
-    <select v-model="filters.type" class="input">
-      <option value="">Тип недвижимости</option>
-      <option value="apartment">Квартира</option>
-      <option value="house">Дом</option>
-      <option value="commercial">Коммерческая</option>
-    </select>
-
-    <select v-model="filters.rooms" class="input">
-      <option value="">Комнат</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4+">4+</option>
-    </select>
-
-    <input v-model="filters.minPrice" type="number" placeholder="Цена от, ₽" class="input" />
-    <input v-model="filters.maxPrice" type="number" placeholder="Цена до, ₽" class="input" />
-
-    <button type="submit" class="w-full rounded-lg bg-brand-600 text-white font-semibold py-2.5 hover:bg-brand-700 transition-colors">
-      Найти
-    </button>
+    <BaseSelect v-model="filters.type" :options="typeOptions" placeholder="Тип недвижимости" />
+    <BaseSelect v-model="filters.rooms" :options="roomOptions" placeholder="Комнат" />
+    <BaseInput v-model="filters.minPrice" type="number" placeholder="Цена от, ₽" />
+    <BaseInput v-model="filters.maxPrice" type="number" placeholder="Цена до, ₽" />
+    <BaseButton type="submit" block>Найти</BaseButton>
   </form>
 </template>
-
-<style scoped>
-
-</style>

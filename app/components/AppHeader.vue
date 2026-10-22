@@ -1,7 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 const isMenuOpen = ref(false)
+
+const isOpen = ref(false)
+const nav = [
+  { label: 'Главная', to: '/' },
+  { label: 'Каталог', to: '/catalog' },
+  { label: 'О компании', to: '/about' },
+  { label: 'Контакты', to: '/contacts' },
+  { label: 'Кабинет', to: '/account'},
+]
 </script>
 
 <template>
