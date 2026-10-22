@@ -6,6 +6,8 @@ definePageMeta({
 
 useHead({ title: 'Личный кабинет' })
 
+const { user } = useUserSession();
+
 const { data, pending } = await useFetch('/api/cabinet/overview')
 
 const stats = computed(() => [
@@ -18,16 +20,16 @@ const formatPrice = (v: number) =>
   new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }).format(v)
 
 const statusLabels: Record<string, { label: string; class: string }> = {
-  new: { label: 'Новая', class: 'bg-blue-100 text-blue-700' },
-  in_progress: { label: 'В работе', class: 'bg-amber-100 text-amber-700' },
-  done: { label: 'Завершена', class: 'bg-green-100 text-green-700' },
-  cancelled: { label: 'Отменена', class: 'bg-gray-100 text-gray-600' },
+	new: { label: 'Новая', class: 'bg-blue-100 text-blue-700' },
+	in_progress: { label: 'В работе', class: 'bg-amber-100 text-amber-700' },
+	done: { label: 'Завершена', class: 'bg-green-100 text-green-700' },
+	cancelled: { label: 'Отменена', class: 'bg-gray-100 text-gray-600' },
 }
 </script>
 
 <template>
-  <div class="space-y-6">
-    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Здравствуйте, {{ user?.name ?? 'друг' }}!</h1>
+  <div class="">
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Здравствуйте, {{ user?.login ?? 'друг' }}!</h1>
 
     <!-- Stats -->
     <div class="grid gap-4 sm:grid-cols-3">
