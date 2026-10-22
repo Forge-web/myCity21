@@ -11,7 +11,6 @@ const nav = [
   { label: 'Контакты', to: '/contacts' },
   { label: 'Кабинет', to: '/account'},
 ]
-
 </script>
 
 <template>
@@ -32,12 +31,16 @@ const nav = [
       
       <!-- Кнопки для ПК -->
       <div class="hidden md:flex gap-3">
-        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
-          Регистрация
-        </button>
-        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-5 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
-          Войти
-        </button>
+		<NuxtLink to="/account/register" class="w-full">
+        	<button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
+				Регистрация
+			</button>
+		</NuxtLink>
+		<NuxtLink to="/account/login" class="w-full">
+			<button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-5 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
+				Войти
+			</button>
+		</NuxtLink>
       </div>
 
       <!-- Кнопка-бургер-->

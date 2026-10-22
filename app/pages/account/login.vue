@@ -3,6 +3,10 @@ const { loggedIn, user, fetch: refreshSession } = useUserSession()
 const credentials = reactive({ login: '', password: '' })
 const errorMessage = ref('')
 
+definePageMeta({
+	middleware: 'auth-exist'
+})
+
 async function login() {
 	errorMessage.value = ''
 	try {
