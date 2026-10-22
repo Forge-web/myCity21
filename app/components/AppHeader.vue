@@ -28,10 +28,10 @@ const nav = [
 
       <!-- Кнопки для ПК -->
       <div class="hidden md:flex gap-3">
-        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-6 py-2 cursor-pointer hover:bg-gray-200 transition-colors duration-300">
+        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
           Регистрация
         </button>
-        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-5 py-2 cursor-pointer hover:bg-gray-200 transition-colors duration-300">
+        <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-5 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
           Войти
         </button>
       </div>
@@ -40,7 +40,6 @@ const nav = [
       <UButton
           :icon="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
           size="xl"
-          color="black"
           variant="ghost"
           aria-label="Меню"
           class="md:hidden"
@@ -53,10 +52,15 @@ const nav = [
       v-if="isMenuOpen" 
       class="block md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
     >
-      <button class="w-full text-sm font-bold text-black bg-white border border-black rounded-lg py-2.5 text-center cursor-pointer">
+
+      <div class="block w-full border-l-2" @click="isMenuOpen = false">
+        <NavMenu />
+      </div>
+
+      <button class="w-full text-sm font-bold text-white bg-black rounded-lg py-2.5 text-center cursor-pointer">
         Регистрация
       </button>
-      <button class="w-fulltext-sm font-bold text-white bg-black rounded-lg py-2.5 text-center cursor-pointer">
+      <button class="w-full text-sm font-bold text-black bg-white border border-black rounded-lg py-2.5 text-center cursor-pointer">
         Войти
       </button>
     </div>
