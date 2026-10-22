@@ -11,21 +11,25 @@ const nav = [
   { label: 'Контакты', to: '/contacts' },
   { label: 'Кабинет', to: '/account'},
 ]
+
 </script>
 
 <template>
   <div class="w-full bg-white border-b border-gray-200">
 
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-2 flex items-center justify-between">
-      <header class="inline-flex flex-col select-none">
-        <h1 class="text-[17px] md:text-[22px] font-bold text-black tracking-tight leading-none">
-          Мой город
-        </h1>
-        <p class="text-[10px] md:text-[11px] font-normal text-black tracking-normal leading-none mt-0.5">
-          информационное<br>агентство
-        </p>
-      </header>
-
+    <header class="max-w-[1440px] mx-auto px-4 md:px-8 py-2 flex items-center justify-between">
+      <NuxtLink to="/">
+        <!-- Логотип -->
+        <div class="inline-flex flex-col select-none">
+          <span class="text-[17px] md:text-[22px] font-bold text-black tracking-tight leading-none">
+            Мой город
+          </span>
+          <p class="text-[10px] md:text-[11px] font-normal text-black tracking-normal leading-none mt-0.5">
+            информационное<br>агентство
+          </p>
+        </div>
+      </NuxtLink>
+      
       <!-- Кнопки для ПК -->
       <div class="hidden md:flex gap-3">
         <button class="text-sm font-bold text-black bg-white border border-black rounded-lg px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition-colors duration-700">
@@ -40,30 +44,37 @@ const nav = [
       <UButton
           :icon="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'"
           size="xl"
+          color="neutral"
           variant="ghost"
           aria-label="Меню"
-          class="md:hidden"
+          class="md:hidden !text-black hover:bg-transparent"
           @click="isMenuOpen = !isMenuOpen"
         />
-    </div>
+    </header>
+          
 
-    <!-- Мобильное выпадающее меню-->
-    <div 
-      v-if="isMenuOpen" 
-      class="block md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
-    >
-
-      <div class="block w-full border-l-2" @click="isMenuOpen = false">
+      <!--Версия NavMenu для пк -->
+      <div class="hidden md:block border-t border-gray-100">
         <NavMenu />
       </div>
 
-      <button class="w-full text-sm font-bold text-white bg-black rounded-lg py-2.5 text-center cursor-pointer">
-        Регистрация
-      </button>
-      <button class="w-full text-sm font-bold text-black bg-white border border-black rounded-lg py-2.5 text-center cursor-pointer">
-        Войти
-      </button>
-    </div>
+      <!-- Мобильное выпадающее меню-->
+      <div 
+        v-if="isMenuOpen" 
+        class="block md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3"
+      >
+
+        <div class="block w-full border-l-2" @click="isMenuOpen = false">
+          <NavMenu />
+        </div>
+
+        <button class="w-full text-sm font-bold text-white bg-black rounded-lg py-2.5 text-center cursor-pointer">
+          Регистрация
+        </button>
+        <button class="w-full text-sm font-bold text-black bg-white border border-black rounded-lg py-2.5 text-center cursor-pointer">
+          Войти
+        </button>
+      </div>
   </div>
 </template>
 
