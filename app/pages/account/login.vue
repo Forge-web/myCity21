@@ -12,7 +12,7 @@ async function login() {
 		})
 		// Обновляем сессию на клиенте и перенаправляем
 		await refreshSession()
-		await navigateTo('/')
+		await navigateTo('/account')
 	} catch (e: any) {
 		errorMessage.value = e.data?.message || 'Login failed'
 	}
