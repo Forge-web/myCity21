@@ -1,14 +1,14 @@
 <script setup lang="ts">
 export interface Property {
-  id: number
-  title: string
-  price: number
-  area: number
-  rooms: number
-  floor?: number
-  address: string
-  image: string
-  isNew?: boolean
+	uuid: string
+	title: string
+	price: string
+	area: number | null
+	rooms: number
+	floor?: number
+	address: string
+	image: string
+	isNew?: boolean
 }
 
 defineProps<{ property: Property }>()
@@ -19,7 +19,7 @@ const formatPrice = (v: number) =>
 
 <template>
   <NuxtLink
-    :to="`/catalog/${property.id}`"
+    :to="`/catalog/${property.uuid}`"
     class="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 flex flex-col"
   >
     <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
@@ -47,7 +47,7 @@ const formatPrice = (v: number) =>
       </div>
 
       <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
-        <span class="text-lg font-bold text-brand-600">{{ formatPrice(property.price) }}</span>
+        <span class="text-lg font-bold text-brand-600">{{ formatPrice(Number(property.price)) }}</span>
         <span class="text-sm text-gray-400 group-hover:text-accent-500 transition-colors">Подробнее →</span>
       </div>
     </div>

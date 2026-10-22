@@ -1,11 +1,11 @@
-import { properties } from '~~/server/database/schema/properties.ts';
+import { announcements } from '~~/server/database/schema/announcements';
 import { eq } from 'drizzle-orm';
 
 export default defineEventHandler( async (event) => {
 	const uuid = String(getRouterParam(event, 'uuid'));
 	const db = useDb();
 	return await db?.select()
-		.from(properties)
-		.where(eq(properties.uuid, uuid));
+		.from(announcements)
+		.where(eq(announcements.uuid, uuid));
 		
 })

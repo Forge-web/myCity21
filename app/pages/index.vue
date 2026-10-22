@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({ title: 'Агентство недвижимости в Алатыре' })
 
-const { data: properties } = await useFetch('/api/properties')
+const { data: properties } = await useFetch('/api/announcements/public')
 
 const advantages = [
   { icon: '🏆', title: 'С 2009 года', text: 'Более 15 лет на рынке недвижимости Алатыря.' },
@@ -9,6 +9,12 @@ const advantages = [
   { icon: '🤝', title: 'Личный подход', text: 'Подберём объект под ваш бюджет и задачи.' },
   { icon: '📞', title: 'Всегда на связи', text: 'Сопровождаем сделку на всех этапах.' },
 ]
+
+const {data, error} = await useFetch('/api/announcements/edit', {
+	body: {}
+})
+
+console.log(data.value);
 </script>
 
 <template>
