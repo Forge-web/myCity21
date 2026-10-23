@@ -6,5 +6,6 @@ export type createAnnouncements = {
 	rooms?: number,
 	address: string,
 	images?: string[],
+	previewImage?: string,
 	activity: boolean
 }

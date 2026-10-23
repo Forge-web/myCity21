@@ -1,6 +1,5 @@
 import mysql from 'mysql2/promise'
 import { drizzle } from 'drizzle-orm/mysql2'
-import { properties } from '#server/database/schema/properties'
 import * as schema from '#server/database/schema'
 
 let _db: ReturnType<typeof drizzle> | null = null

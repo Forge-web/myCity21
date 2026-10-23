@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
-	modules: ['@nuxt/ui', '@nuxt/fonts', 'nuxt-auth-utils'],
+	modules: ['@nuxt/ui', '@nuxt/fonts', 'nuxt-auth-utils', '@nuxt/image'],
 	css: ['~/assets/css/main.css'],
 	vite: {
 		plugins: [tailwindcss()],
@@ -22,7 +22,11 @@ export default defineNuxtConfig({
 			],
 		},
 	},
+	nitro: {
+		preset: 'node-server'
+	},
 	runtimeConfig: {
 		databaseUrl: process.env.DATABASE_URL,
+		photosDir: 'public/images'
 	},
 })

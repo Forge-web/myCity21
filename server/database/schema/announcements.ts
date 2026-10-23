@@ -11,6 +11,7 @@ export const announcements = mysqlTable('announcements', {
 	area: decimal('area', { precision: 8, scale: 2 }),
 	rooms: int('rooms'),
 	address: text().notNull(),
+	previewImage: text('previewImage'),
 	images: json('images').$type<string[]>().default([]),
 	activity: boolean().default(true)
 })
