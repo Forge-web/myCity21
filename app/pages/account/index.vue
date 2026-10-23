@@ -28,7 +28,7 @@ const statusLabels: Record<string, { label: string; class: string }> = {
 </script>
 
 <template>
-  <div class="">
+  <div class="w-full">
     <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Здравствуйте, {{ user?.login ?? 'друг' }}!</h1>
 
     <!-- Stats -->

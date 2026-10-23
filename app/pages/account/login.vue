@@ -42,7 +42,7 @@ async function login() {
 				</form>
 			</div>
 			<div class="">
-				Нет аккаунт? <span class="text-red-600 hover:text-red-900">
+				Нет аккаунта? <span class="text-red-600 hover:text-red-900">
 					<NuxtLink to="/account/register">
 						Регистрация
 					</NuxtLink>

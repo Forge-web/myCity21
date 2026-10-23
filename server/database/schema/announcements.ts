@@ -1,4 +1,4 @@
-import { mysqlTable, int, varchar, decimal, text, boolean } from 'drizzle-orm/mysql-core'
+import { mysqlTable, int, varchar, decimal, text, boolean, json } from 'drizzle-orm/mysql-core'
 import generatorUUIDv4 from '../../utils/generatorUUIDv4.ts'
 import { users } from './users.ts'
 
@@ -11,6 +11,6 @@ export const announcements = mysqlTable('announcements', {
 	area: decimal('area', { precision: 8, scale: 2 }),
 	rooms: int('rooms'),
 	address: text().notNull(),
-	image: text(),
+	images: json('images').$type<string[]>().default([]),
 	activity: boolean().default(true)
 })

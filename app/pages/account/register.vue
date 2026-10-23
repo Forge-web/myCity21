@@ -36,7 +36,9 @@ async function register() {
 					<div>
 						<BaseInput v-model="credentials.password" type="password" id="password" required label="Пароль" />
 					</div>
-					<button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
+					<button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+						Register
+					</button>
 					<p v-if="errorMessage" class="text-red-500 text-sm text-center">{{ errorMessage }}</p>
 				</form>
 			</div>

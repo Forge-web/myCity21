@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean
   required?: boolean
   id?: string
+  multiple?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -23,7 +24,7 @@ const inputId = computed(() => props.id ?? `input-${uid}`)
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full" :class="type==='checkbox' ? 'flex justify-between' : ''">
     <label v-if="label" :for="inputId" class="block text-sm font-medium text-gray-700 mb-1.5">
       {{ label }}
       <span v-if="required" class="text-red-500">*</span>
@@ -44,6 +45,7 @@ const inputId = computed(() => props.id ?? `input-${uid}`)
         :placeholder="placeholder"
         :disabled="disabled"
         :required="required"
+		:multiple="multiple"
         :class="[
           'w-full rounded-lg border bg-gray-50 text-sm text-gray-800 placeholder-gray-400',
           'px-4 py-2.5 transition',
@@ -54,7 +56,7 @@ const inputId = computed(() => props.id ?? `input-${uid}`)
             ? 'border-red-400 focus:ring-red-400'
             : 'border-gray-200 focus:ring-brand-500 focus:border-transparent',
           disabled && 'opacity-60 cursor-not-allowed',
-        ]"
+		]"
       />
 
       <div

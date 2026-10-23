@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import AppToaster from '~/components/Toast/AppToaster.vue';
+
 // auth: замените на ваш composable
 const { user, clear } = useUserSession()
 
 const nav = [
-  { label: 'Обзор', to: '/cabinet', icon: '🏠' },
+  { label: 'Обзор', to: '/account', icon: '🏠' },
   { label: 'Избранное', to: '/cabinet/favorites', icon: '❤️' },
   { label: 'Мои объявления', to: '/account/announcements', icon: '📩' },
-  { label: 'Настройки', to: '/cabinet/settings', icon: '⚙️' },
+  { label: 'Настройки', to: '/account/settings', icon: '⚙️' },
 ]
 
 async function logout() {
@@ -16,6 +18,10 @@ async function logout() {
 </script>
 
 <template>
+	<ClientOnly>
+		<AppToaster />
+	</ClientOnly>
+	
 	<div class="flex flex-col min-h-screen bg-gray-50">
 		<AppHeader />
 
@@ -55,12 +61,15 @@ async function logout() {
 				</aside>
 
 				<!-- Content -->
-				<div class="min-w-0">
-					<slot />
+				<div class="min-w-0 flex flex-col justify-center items-center text-center">
+					<div class="flex flex-col max-w-7xl w-max">
+						<slot />
+					</div>
 				</div>
 			</div>
 		</div>
 		
 		<AppFooter />
 	</div>
+	
 </template>

@@ -5,19 +5,18 @@ definePageMeta({
 	middleware: ['auth'],
 })
 
-const {data, error} = await useFetch('/api/announcements/edit', {
-	body: {}
+const {data, error} = await useFetch('/api/announcements/edit/own', {
+	method: "GET"
 })
 
-const createAnnouncements = async () => {
-
-}
 
 </script>
 
 <template>
+	<pre>
+		{{ data }}
+	</pre>
 	<div class="w-full flex flex-col">
-		
 		<BaseButton>
 			<NuxtLink to="/account/announcements/create"
 				class="w-full"
@@ -29,7 +28,7 @@ const createAnnouncements = async () => {
 		<div class="w-full">
 			<h2 class="text-xl">Ваши объявления</h2>
 			<div class="flex">
-				<!-- <PropertyCard v-for="value in data.value" /> -->
+				
 			</div>
 		</div>
 	</div>
